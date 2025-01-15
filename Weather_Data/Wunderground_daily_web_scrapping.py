@@ -22,7 +22,7 @@ def fetch_weather_data(city, formatted_date, start_time, max_retries=10):
         try:
             driver = webdriver.Firefox(options=options, service=service)
             driver.get(url)
-            time.sleep(30)
+            time.sleep(60)
 
             response = BS(driver.page_source, 'html.parser')
             table = response.find('table')
