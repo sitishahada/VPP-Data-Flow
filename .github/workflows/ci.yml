@@ -38,4 +38,4 @@ jobs:
 
     - name: Run Python Script
       run: |
-        python Weather Data/Wunderground_daily_web_scrapping.py  # the path to your Python script
+        python Weather_Data/Wunderground_daily_web_scrapping.py  # the path to your Python script
