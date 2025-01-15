@@ -12,7 +12,7 @@ from selenium.webdriver.firefox.service import Service
 # Set up Firefox options for a headless browser
 options = Options()
 options.add_argument('--headless')
-service = Service(executable_path='C:\Program Files\Geckodriver\geckodriver.exe')
+service = Service(executable_path='/usr/local/bin/geckodriver')
 
 # Function to fetch weather data
 def fetch_weather_data(city, formatted_date, start_time, max_retries=10):
@@ -66,8 +66,8 @@ def fetch_weather_data(city, formatted_date, start_time, max_retries=10):
             df = df.set_index('time')
             df = df.resample('30min').ffill()
 
-            # Directory creation
-            directory = f'E:/0. VPP/0. VPP Migration Code/M5 dataset/{city.capitalize()}'
+                       # Directory creation
+            directory = f'./dataset/{city.capitalize()}'
             os.makedirs(directory, exist_ok=True)  # Create directory if it doesn't exist
 
             # Save to CSV
@@ -85,7 +85,8 @@ def fetch_weather_data(city, formatted_date, start_time, max_retries=10):
                 driver.quit()
             except:
                 pass
-    print(f"Failed to fetch")
+    print(f"Failed to fetch data for {city} after {max_retries} attempts.")
+    return None
 
     # Main function
 def main():
