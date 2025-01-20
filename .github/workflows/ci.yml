@@ -36,6 +36,13 @@ jobs:
         sudo mv geckodriver /usr/local/bin/
         geckodriver --version
 
+    - name: Check running processes
+      run: ps aux
+
+    - name: Check open ports
+      run: netstat -tuln
+
+
     - name: Run Python Script
       run: |
         python Weather_Data/Wunderground_daily_web_scrapping.py  # the path to your Python script
