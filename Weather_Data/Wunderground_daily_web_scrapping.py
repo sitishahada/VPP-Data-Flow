@@ -22,7 +22,7 @@ def fetch_weather_data(city, formatted_date, start_time, max_retries=10):
         try:
             driver = webdriver.Firefox(options=options, service=service)
             driver.get(url)
-            time.sleep(60)
+            time.sleep(30)
 
             response = BS(driver.page_source, 'html.parser')
             table = response.find('table')
@@ -79,7 +79,7 @@ def fetch_weather_data(city, formatted_date, start_time, max_retries=10):
 
         except Exception as e:
             print(f"Attempt {attempt + 1} failed for {city}: {e}")
-            time.sleep(5)  # Optional: wait before retrying
+            time.sleep(3)  # Optional: wait before retrying
         finally:
             try:
                 driver.quit()
