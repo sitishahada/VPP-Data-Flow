@@ -38,6 +38,4 @@ jobs:
 
     - name: Run Python Script
       run: |
-        Xvfb :99 -ac &
-        export DISPLAY=:99
         python Weather_Data/Wunderground_daily_web_scrapping.py  # the path to your Python script
